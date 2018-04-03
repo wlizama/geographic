@@ -1,0 +1,11 @@
+{% extends "countries/base.html" %}
+{% block title %}Geographic - Country Detail{% endblock %}
+{% block content %}
+  <h1>Detalle de Pais Abreviatura: {{code}}</h1>
+  {% for country in countries %}
+    {% if country.abr == code %}
+      {% include "countries/country.html" %}
+    {% endif %}
+  {% endfor %}
+{% endblock %}
+

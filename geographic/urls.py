@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from countries.views import HomeView
-from continents.views import ContinentsView
+from countries.views import HomeView, CountriesDetailView, CountriesDetailIDView
+from continents.views import ContinentsView 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view()),
-    path('continents/', ContinentsView.as_view())
+    path('continents/', ContinentsView.as_view()),
+    path('countries/<int:id>', CountriesDetailIDView.as_view()),
+    path('countries/<code>', CountriesDetailView.as_view())
 ]
