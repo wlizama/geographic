@@ -1,0 +1,14 @@
+{% extends "countries/base.html" %}
+{% block title %}Geographic - Lista de Paises{% endblock %}
+{% block content %}
+  <h1>Lista de Paises</h1>
+  <ul>
+  {% for country in countries %}
+    <li>
+      {% include "countries/country.html" %}
+      <hr>
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}
+

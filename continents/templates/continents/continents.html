@@ -1,0 +1,11 @@
+{% extends "countries/base.html" %}
+{% block title %}Geographic - Lista de Continentes{% endblock %}
+{% block content %}
+  <div style="text-align: center; font-size: 18px">
+    <h1>Continentes</h1>
+    {% for continent in continents %}
+      {% include "continents/continent.html"%}
+    {% endfor %}
+  </div>
+{% endblock %}
+
