@@ -20,8 +20,8 @@ from continents.views import ContinentsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', HomeView.as_view()),
-    path('continents/', ContinentsView.as_view()),
-    path('countries/<int:id>', CountriesDetailIDView.as_view()),
-    path('countries/<code>', CountriesDetailView.as_view())
+    path('', HomeView.as_view(), name="home"),
+    path('continents/', ContinentsView.as_view(), name="continents_home"),
+    path('countries/<int:id>', CountriesDetailIDView.as_view(), name="country_id_detail"),
+    path('countries/<code>', CountriesDetailView.as_view(), name="country_code_detail")
 ]

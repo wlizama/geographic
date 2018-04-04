@@ -2,4 +2,5 @@
   <div><b>{{country.name|title}}</b> ({{ country.abr }})</div>
   <div><b>Poblacion</b> {{ country.population|floatformat:2 }}</div>
   <div><b>Descripción:</b> {{country.description}}</div>
+  <div><a href="{% url 'country_id_detail' id=country.id %}">Ver más...</a></div>
 </p>
