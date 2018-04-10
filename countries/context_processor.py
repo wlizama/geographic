@@ -1,14 +1,7 @@
 from django.urls import reverse
+from countries.models import Country
 
 def countries_data(request):
-  countries = [
-    { 'id': 1, 'name': "perú", 'abr': "PE", "population": 190682,"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo quod neque assumenda illum! Praesentium corrupti dicta, magnam assumenda voluptas libero aspernatur dolor quasi dolore, ad hic blanditiis ullam fugit dolorum?", "detail_url": reverse("country_id_detail", kwargs={"id":1})},
-    { 'id': 2, 'name': "méxico", 'abr': "MX", "population": 111514,"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At sunt veritatis ea ducimus soluta iste assumenda incidunt deleniti aut doloribus, dicta, dolores facilis eius delectus repellendus, ut beatae itaque! Molestiae.", "detail_url": reverse("country_id_detail", kwargs={"id":2})},
-    { 'id': 3, 'name': "estados unidos", 'abr': "USA", "population": 177540,"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium animi mollitia, consequatur debitis doloribus suscipit iure fugit, adipisci neque architecto, omnis quasi. Soluta voluptas, atque nulla voluptate error vero cupiditate.", "detail_url": reverse("country_id_detail", kwargs={"id":3})},
-    { 'id': 4, 'name': "colombia", 'abr': "CO", "population": 121367,"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, perspiciatis. Nostrum facilis in impedit, ea earum est laudantium enim unde sequi optio inventore non, obcaecati, omnis commodi reprehenderit et provident.", "detail_url": reverse("country_id_detail", kwargs={"id":4})},
-    { 'id': 5, 'name': "ecuador", 'abr': "ECU", "population": 152251,"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, veritatis, eius quis incidunt non officiis perferendis eveniet aut laborum quo voluptates fuga voluptatum cupiditate perspiciatis odio a nesciunt ex ducimus.", "detail_url": reverse("country_id_detail", kwargs={"id":5})},
-    { 'id': 6, 'name': "bolivia", 'abr': "BOL", "population": 135997,"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum eligendi impedit, doloremque beatae perferendis dolorem numquam sunt quam ducimus ullam repellendus, maiores unde laboriosam hic cumque nemo at sequi suscipit.", "detail_url": reverse("country_id_detail", kwargs={"id":6})},
-    { 'id': 7, 'name': "venezuela", 'abr': "VEN", "population": 168911,"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus nemo, suscipit id provident libero error non accusantium et aperiam, quia totam quas beatae. Facere libero fuga ipsa dolore laudantium ullam!", "detail_url": reverse("country_id_detail", kwargs={"id":7})},
-  ]
+  countries = Country.objects.all()
 
   return { 'countries' : countries }
