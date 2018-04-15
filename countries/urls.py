@@ -15,10 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from countries.views import HomeView, CountriesDetailView, CountriesDetailIDView
+from countries.views import (
+  CountriesDetailView,
+  CountriesDetailIDView,
+  CountrySearchView
+)
 
 
 urlpatterns = [
-    path('countries/<int:id>', CountriesDetailIDView.as_view(), name="country_id_detail"),
-    path('countries/<code>', CountriesDetailView.as_view(), name="country_code_detail")
+    path('search/<query>/', CountrySearchView.as_view(), name="country_search"),
+    path('<int:id>/', CountriesDetailIDView.as_view(), name="country_id_detail"),
+    path('<code>/', CountriesDetailView.as_view(), name="country_code_detail")
 ]
