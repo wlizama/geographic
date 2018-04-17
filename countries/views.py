@@ -1,19 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.views.generic import TemplateView
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from countries.models import Country
 
 class HomeView(TemplateView):
   template_name = 'countries/home.html'
 
-class CountriesDetailIDView(TemplateView):
+class CountriesDetailIDView(DetailView):
   template_name = 'countries/country_id_detail.html'
-
-  def get_context_data(self, *args, **kwargs):
-    return {
-      "id" : kwargs["id"]
-    }
+  model = Country
 
 class CountriesDetailView(TemplateView):
   template_name = 'countries/country_detail.html'

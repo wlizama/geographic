@@ -1,11 +1,6 @@
 {% extends "countries/base.html" %}
 {% block title %}Geographic - Country Detail by ID{% endblock %}
 {% block content %}
-  <h1>Detalle de Pais ID: {{id}} </h1>
-  {% for country in countries %}
-    {% if country.id == id %}
-      {% include "countries/country.html" %}
-    {% endif %}
-  {% endfor %}
+  {% include "countries/country.html" with country=object %}
 {% endblock %}
 
