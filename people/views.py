@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from people.forms import RegisterForm
+from people.forms import RegisterFormModel
 from people.models import Person
 
 def register(request):
-  form = RegisterForm(request.POST or None)
+  fathers = Person.objects.filter(children__isnull=True)
+
+  form = RegisterFormModel(fathers, request.POST or None)
 
   if form.is_valid():
     data = form.cleaned_data

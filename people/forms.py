@@ -7,12 +7,12 @@ class RegisterForm(forms.Form):
   nacionality = forms.ModelMultipleChoiceField(queryset=Country.objects.all())
   father = forms.ModelChoiceField(required=False, queryset=Person.objects.all())
 
-# class RegisterFormModel(forms.ModelForm):
+class RegisterFormModel(forms.ModelForm):
 
-#   def __init__(self, fathers, *args, **kwargs):
-#     super().__init__(*args, **kwargs)
-#     self.fields['father'].queryset = fathers
+  def __init__(self, fathers, *args, **kwargs):
+    super().__init__(*args, **kwargs)
+    self.fields['father'].queryset = fathers
 
-#   class Meta:
-#     model = Person
-#     fields = ['first_name', 'nacionality', 'father']
+  class Meta:
+    model = Person
+    fields = ['first_name', 'nacionality', 'father']
