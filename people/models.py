@@ -6,3 +6,6 @@ class Person(models.Model):
   nacionality = models.ManyToManyField('countries.Country')
 
   father = models.OneToOneField("self", on_delete=models.CASCADE, null=True)
+
+  def __str__(self):
+        return self.first_name
