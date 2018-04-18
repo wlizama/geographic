@@ -9,11 +9,11 @@ class ActiveManager(models.Manager):
 # Create your models here.
 class Country(models.Model):
   CODE_CHOICES = (
-    ( 'perú', 'PE' ),
-    ( 'colombia', 'CO' ),
-    ( 'mexico', 'MX' ),
-    ( 'estados unidos', 'USA' ),
-    ( 'argentina', 'AR' ),
+    ( 'PE' , 'perú'),
+    ( 'CO', 'colombia' ),
+    ( 'MX', 'mexico' ),
+    ( 'USA', 'estados unidos' ),
+    ( 'AR', 'argentina' ),
   )
 
   name = models.CharField(max_length=255)    

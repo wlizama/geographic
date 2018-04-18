@@ -18,11 +18,13 @@ from django.urls import path
 from countries.views import (
   CountriesDetailView,
   CountriesDetailIDView,
-  CountrySearchView
+  CountrySearchView,
+  CreateCountryView
 )
 
 
 urlpatterns = [
+    path('register/', CreateCountryView.as_view(), name="register"),
     path('search/<query>/', CountrySearchView.as_view(), name="country_search"),
     path('<int:pk>/', CountriesDetailIDView.as_view(), name="country_id_detail"),
     path('<code>/', CountriesDetailView.as_view(), name="country_code_detail")
