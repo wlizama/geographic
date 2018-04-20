@@ -5,6 +5,12 @@
   <title>{% block title %}Geographic{% endblock %}</title>
 </head>
 <body>
-{% block content %}{% endblock %}
+  <div {% if request.session.testab == 'a' %} style="background-color: lightblue;"{%endif %}>
+       <p>Test A/B: {{request.session.testab}}</p>
+       {% block content %}
+           <h1>Geographic Application</h1>
+           <p>{% lorem %}</p>
+       {% endblock %}
+   </div>
 </body>
 </html>
